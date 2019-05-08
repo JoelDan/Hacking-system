@@ -4,28 +4,49 @@
 
 using namespace std;
 
+void memu(void);
+void login_page(void);
+
 int main(void) {
-	string name;
-	string qwd;
 
-	cout << "请输入用户名：";
-	cin >> name;
+	login_page();
 
-	cout << "请输入密码：";
-	cin >> qwd;
-	system("cls");
+	system("pause");
+	return 0;
+}
 
-	if (name == "54hk" && qwd == "123456") {
+//菜单功能
+void memu(void) {
 		cout << "1.网站404攻击" << endl;
 		cout << "2.网站篡改攻击" << endl;
 		cout << "3.网站攻击记录" << endl;
 		cout << "4.DNS攻击" << endl;
 		cout << "5.服务器重启攻击" << endl;
 	}
-	else {
-		cout << "用户名或密码错误，请重新输入！" << endl;
-	}
 
-	system("pause");
-	return 0;
+//登陆页面
+void login_page(void) {
+	string name;
+	string qwd;
+
+	while (1) {
+		system("cls");
+		cout << "请输入用户名：";
+		cin >> name;
+
+		cout << "请输入密码：";
+		cin >> qwd;
+		system("cls");
+
+
+		if (name == "54hk" && qwd == "123456") {
+			memu();
+			break;
+		}
+		else {
+			cout << "用户名或密码错误，请重新输入！" << endl;
+			system("pause");
+		}
+
+	}
 }
