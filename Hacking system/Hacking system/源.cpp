@@ -4,25 +4,100 @@
 
 using namespace std;
 
-void memu(void);
 void login_page(void);
+void Menu_realization(void);
 
 int main(void) {
-
 	login_page();
+	Menu_realization();
 
-	system("pause");
 	return 0;
 }
 
 //²Ëµ¥¹¦ÄÜ
 void memu(void) {
-		cout << "1.ÍøÕ¾404¹¥»÷" << endl;
-		cout << "2.ÍøÕ¾´Û¸Ä¹¥»÷" << endl;
-		cout << "3.ÍøÕ¾¹¥»÷¼ÇÂ¼" << endl;
-		cout << "4.DNS¹¥»÷" << endl;
-		cout << "5.·þÎñÆ÷ÖØÆô¹¥»÷" << endl;
+	cout << "1.ÍøÕ¾404¹¥»÷" << endl;
+	cout << "2.ÍøÕ¾´Û¸Ä¹¥»÷" << endl;
+	cout << "3.ÍøÕ¾¹¥»÷¼ÇÂ¼" << endl;
+	cout << "4.ÍøÕ¾¹¥»÷ÐÞ¸´" << endl;
+	cout << "5.ÍË³ö" << endl;
+}
+
+//ÓÃ»§ÊäÈë¹¦ÄÜ±àºÅ
+int memuChoise(void) {
+	int serial_number;    //ÓÃ»§ÊäÈëµÄ±àºÅ
+
+	while (1) {
+		cout << "ÇëÑ¡Ôñ£º";
+		cin >> serial_number;
+
+		if (cin.fail()) {
+			cin.clear();
+			cin.sync();
+			cout << "ÎÞÐ§ÊäÈë£¬ÇëÖØÐÂÊäÈë!" << endl;
+			system("pause");
+		} else {
+			break;
+		}
 	}
+
+	system("cls");
+	return serial_number;
+}
+
+//404¹¥»÷
+void attack404(void) {
+	cout << "404¹¥»÷...." << endl;
+	system("pause");
+}
+
+//ÍøÕ¾´Û¸Ä¹¥»÷
+void tampering_attack(void) {
+	cout << "ÍøÕ¾´Û¸Ä¹¥»÷...." << endl;
+	system("pause");
+}
+
+//²é¿´¹¥»÷¼ÇÂ¼
+void attack_record(void) {
+	cout << "²é¿´¹¥»÷¼ÇÂ¼...." << endl;
+	system("pause");
+}
+
+//ÍøÕ¾¹¥»÷ÐÞ¸´
+void attack_restore(void) {
+	cout << "ÍøÕ¾¹¥»÷ÐÞ¸´...." << endl;
+	system("pause");
+}
+
+//ÊµÏÖ²Ëµ¥Ñ¡Ïî¹¦ÄÜ
+void Menu_realization(void) {
+	while (1) {
+		memu();
+		int serial_number = memuChoise();
+
+		switch (serial_number) {
+		case 1:
+			attack404();
+			break;
+		case 2:
+			tampering_attack();
+			break;
+		case 3:
+			attack_record();
+			break;
+		case 4:
+			attack_restore();
+			break;
+		case 5:
+			return;
+		default:
+			cout << "ÎÞÐ§ÊäÈë£¬ÇëÖØÐÂÊäÈë£¡" << endl;
+			system("pause");
+			break;
+		}
+		system("cls");
+	}
+}
 
 //µÇÂ½Ò³Ãæ
 void login_page(void) {
@@ -38,15 +113,11 @@ void login_page(void) {
 		cin >> qwd;
 		system("cls");
 
-
 		if (name == "54hk" && qwd == "123456") {
-			memu();
 			break;
-		}
-		else {
+		} else {
 			cout << "ÓÃ»§Ãû»òÃÜÂë´íÎó£¬ÇëÖØÐÂÊäÈë£¡" << endl;
 			system("pause");
 		}
-
 	}
 }
